@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <base href="/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jurassic Reyes Park - El Juego Navideño</title>
+  <style>
+    /* ==========================
+    ESTILOS GENERALES
+    ========================== */
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #1a1a1a, #2d1f1f);
+      color: #ffffff;
+      /* Fuente ficticia "Jurassic Park". Si no existe, usa Arial */
+      font-family: 'Jurassic Park', Arial, sans-serif;
+      min-height: 100vh;
+      opacity: 0; /* Comienza invisible */
+      transition: opacity 1s ease-in; /* Efecto de aparición */
+    }
+
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      animation: glow 2s infinite alternate;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+
+    .title {
+      font-size: 3em;
+      color: #ff3300;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin: 20px 0;
+    }
+
+    .description {
+      font-size: 1.5em;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: linear-gradient(45deg, #ff3300, #ff6600);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 51, 0, 0.5);
+    }
+
+    /* Brillo en el logo */
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(255, 51, 0, 0.5); }
+      to { box-shadow: 0 0 20px rgba(255, 51, 0, 0.8); }
+    }
+
+    .christmas-hat {
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      transform: rotate(30deg);
+      font-size: 2em;
+    }
+
+    /*
+    ==========================
+    RESPONSIVE
+    ==========================
+    */
+    @media (max-width: 768px) {
+      .logo-container {
+        max-width: 300px;
+      }
+
+      .title {
+        font-size: 2em;
+      }
+
+      .description {
+        font-size: 1.2em;
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+      }
+    }
+
+    /* ==========================
+    ESTILOS PARA LA SECCIÓN DE EXPLICACIÓN DEL JUEGO
+    ========================== */
+    .game-explanation {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 800px;
+      text-align: left;
+      color: #ffffff;
+    }
+
+    .game-explanation h2 {
+      color: #ffcc00;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      margin-bottom: 15px;
+    }
+
+    .game-explanation ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .game-explanation ul li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      position: relative;
+      padding-left: 25px;
+    }
+
+
+
+    /* Estilos para la lista ordenada */
+    .game-explanation ol {
+      padding-left: 20px;
+    }
+
+    .game-explanation ol li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="snow"></div>
+
+  <div class="container">
+    <div class="logo-container">
+      <!-- Asegúrate de que el archivo de imagen exista en /assets/ -->
+      <img 
+        src="/assets/jurassic-park-logo-historia-parque-jurasico.jpg" 
+        alt="Jurassic Reyes Park Logo" 
+        class="logo"
+      >
+      <span class="christmas-hat">🎅</span>
+    </div>
+    
+    <h1 class="title">¡Bienvenido a Jurassic Reyes Park - Edición Reyes Magos!</h1>
+    
+    <p class="description">
+       ¡Sumérgete en una aventura prehistórica única donde los dinosaurios celebran la Navidad!
+    </p>
+    
+    <!-- Sección de Explicación del Juego -->
+    <div class="game-explanation">
+      <h2>¿Cómo Jugar?</h2>
+      <p>
+        ¡Descubre al dinosaurio escondido detrás de las cajas de regalo! Tienes tres cajas para elegir.
+        Haz clic en una para ver si has encontrado al dinosaurio.
+      </p>
+      <ul>
+        <li>Haz clic en una de las tres cajas de regalo.</li>
+        <li>Si encuentras al dinosaurio, sumarás 1 punto.</li>
+        <li>Después de cada intento, las cajas se reordenarán al azar.</li>
+        <li>¡Intenta encontrar al dinosaurio 10 veces!</li>
+      </ul>
+    </div>
+    
+    <a href="/juego.html" class="cta-button">¡Jugar Ahora!</a>
+  </div>
+
+  <script>
+    // Hacer que el body aparezca gradualmente al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.opacity = 1;
+    });
+
+    // Crear efecto de nieve
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.innerHTML = '❄';
+      snowflake.style.position = 'fixed';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.top = '-20px';
+      snowflake.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      snowflake.style.color = 'white';
+      snowflake.style.opacity = Math.random();
+      snowflake.style.transition = 'all linear';
+      snowflake.style.zIndex = '1000';
+      document.querySelector('.snow').appendChild(snowflake);
+
+      // Animación del copo de nieve (desde arriba hasta abajo con giro)
+      const animation = snowflake.animate([
+        { transform: 'translateY(0vh) rotate(0deg)' },
+        { transform: 'translateY(100vh) rotate(360deg)' }
+      ], {
+        duration: Math.random() * 5000 + 5000,
+        iterations: 1
+      });
+
+      // Cuando termina la animación, eliminar el copo de nieve del DOM
+      animation.onfinish = () => snowflake.remove();
+    }
+
+    // Crear copos de nieve cada 200 ms
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
+</html>
